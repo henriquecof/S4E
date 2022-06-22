@@ -1,0 +1,158 @@
+﻿/****** Object:  Table [dbo].[CRMChamado]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[CRMChamado](
+	[chaId] [int] IDENTITY(1,1) NOT NULL,
+	[tsoId] [smallint] NOT NULL,
+	[chaSolicitante] [int] NOT NULL,
+	[mdeId] [smallint] NOT NULL,
+	[chaDtCadastro] [datetime] NOT NULL,
+	[chaRespostaEmail] [bit] NOT NULL,
+	[chaRespostaSMS] [bit] NOT NULL,
+	[chaChave] [varchar](100) NOT NULL,
+	[TipoUsuario] [smallint] NOT NULL,
+	[Usuario] [int] NOT NULL,
+	[UsuarioResponsavel] [int] NULL,
+	[sitId] [tinyint] NOT NULL,
+	[chaProtocolo] [varchar](30) NOT NULL,
+	[chaDtFechamento] [datetime] NULL,
+	[chaIdVinculado] [int] NULL,
+	[tinId] [tinyint] NOT NULL,
+	[chaDtPrevisaoSolucao] [datetime] NULL,
+	[chaEmailResposta] [varchar](50) NULL,
+	[chaTelefoneResposta] [varchar](10) NULL,
+	[iadId] [smallint] NULL,
+	[cgrId] [smallint] NULL,
+	[chaNovaMensagem] [bit] NULL,
+	[chaNovaMensagem2Remetente] [bit] NULL,
+	[chaReceptivo] [bit] NULL,
+	[chaTempoEstimado] [int] NULL,
+	[chaNivelCriticidade] [int] NULL,
+	[chaDtAbertura] [datetime] NULL,
+	[chaAgendado] [bit] NULL,
+	[chaComissaoPagamento] [bit] NULL,
+	[chaRespostaEmailUltimaInteracao] [bit] NULL,
+	[TipoUsuarioVinculado] [smallint] NULL,
+	[UsuarioVinculado] [int] NULL,
+	[chaExibirCRMSolicitante] [bit] NULL,
+	[chaProtocoloAnterior] [varchar](200) NULL,
+	[horasEstimadas] [int] NULL,
+	[rcaId] [tinyint] NULL,
+	[rtiId] [tinyint] NULL,
+	[rteId] [tinyint] NULL,
+	[reaId] [tinyint] NULL,
+	[rdeId] [tinyint] NULL,
+	[TipoUsuarioResponsavel] [smallint] NULL,
+	[NumeroProcesso] [varchar](20) NULL,
+	[OrigemProcesso] [tinyint] NULL,
+ CONSTRAINT [PK_CRMChamado] PRIMARY KEY CLUSTERED 
+(
+	[chaId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE NONCLUSTERED INDEX [_dta_index_CRMChamado_7_1563165360__K11_K4_K5_2_3] ON [dbo].[CRMChamado]
+(
+	[UsuarioResponsavel] ASC,
+	[mdeId] ASC,
+	[chaDtCadastro] ASC
+)
+INCLUDE([tsoId],[chaSolicitante]) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [_dta_index_CRMChamado_7_1563165360__K11_K5_2_3_4] ON [dbo].[CRMChamado]
+(
+	[UsuarioResponsavel] ASC,
+	[chaDtCadastro] ASC
+)
+INCLUDE([tsoId],[chaSolicitante],[mdeId]) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [_dta_index_CRMChamado_7_1563165360__K11_K5_4] ON [dbo].[CRMChamado]
+(
+	[UsuarioResponsavel] ASC,
+	[chaDtCadastro] ASC
+)
+INCLUDE([mdeId]) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [_dta_index_CRMChamado_7_1563165360__K5_K11_4] ON [dbo].[CRMChamado]
+(
+	[chaDtCadastro] ASC,
+	[UsuarioResponsavel] ASC
+)
+INCLUDE([mdeId]) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado] ON [dbo].[CRMChamado]
+(
+	[tsoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_1] ON [dbo].[CRMChamado]
+(
+	[chaSolicitante] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_2] ON [dbo].[CRMChamado]
+(
+	[mdeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_3] ON [dbo].[CRMChamado]
+(
+	[chaDtCadastro] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+SET ANSI_PADDING ON
+
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_4] ON [dbo].[CRMChamado]
+(
+	[chaChave] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_5] ON [dbo].[CRMChamado]
+(
+	[chaIdVinculado] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_6] ON [dbo].[CRMChamado]
+(
+	[chaDtFechamento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_7] ON [dbo].[CRMChamado]
+(
+	[tinId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_8] ON [dbo].[CRMChamado]
+(
+	[chaNovaMensagem] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_CRMChamado_9] ON [dbo].[CRMChamado]
+(
+	[chaNovaMensagem2Remetente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+ALTER TABLE [dbo].[CRMChamado] ADD  CONSTRAINT [DF_CRMChamado_CRMTipoUsuario]  DEFAULT ((1)) FOR [TipoUsuario]
+ALTER TABLE [dbo].[CRMChamado]  WITH NOCHECK ADD  CONSTRAINT [FK_CRMChamado_CRMChamado] FOREIGN KEY([chaIdVinculado])
+REFERENCES [dbo].[CRMChamado] ([chaId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMChamado]
+ALTER TABLE [dbo].[CRMChamado]  WITH CHECK ADD  CONSTRAINT [FK_CRMChamado_CRMGrupoResposanvel] FOREIGN KEY([cgrId])
+REFERENCES [dbo].[CRMGrupoResponsavel] ([cgrId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMGrupoResposanvel]
+ALTER TABLE [dbo].[CRMChamado]  WITH NOCHECK ADD  CONSTRAINT [FK_CRMChamado_CRMInformacaoAdicional] FOREIGN KEY([iadId])
+REFERENCES [dbo].[CRMInformacaoAdicional] ([iadId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMInformacaoAdicional]
+ALTER TABLE [dbo].[CRMChamado]  WITH NOCHECK ADD  CONSTRAINT [FK_CRMChamado_CRMMotivoDetalhado] FOREIGN KEY([mdeId])
+REFERENCES [dbo].[CRMMotivoDetalhado] ([mdeId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMMotivoDetalhado]
+ALTER TABLE [dbo].[CRMChamado]  WITH CHECK ADD  CONSTRAINT [FK_CRMChamado_CRMREACanalAtendimento] FOREIGN KEY([rcaId])
+REFERENCES [dbo].[CRMREACanalAtendimento] ([rcaId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMREACanalAtendimento]
+ALTER TABLE [dbo].[CRMChamado]  WITH NOCHECK ADD  CONSTRAINT [FK_CRMChamado_CRMSituacao] FOREIGN KEY([sitId])
+REFERENCES [dbo].[CRMSituacao] ([sitId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMSituacao]
+ALTER TABLE [dbo].[CRMChamado]  WITH NOCHECK ADD  CONSTRAINT [FK_CRMChamado_CRMTipoInteracao] FOREIGN KEY([tinId])
+REFERENCES [dbo].[CRMTipoInteracao] ([tinId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMTipoInteracao]
+ALTER TABLE [dbo].[CRMChamado]  WITH NOCHECK ADD  CONSTRAINT [FK_CRMChamado_CRMTipoSolicitante] FOREIGN KEY([tsoId])
+REFERENCES [dbo].[CRMTipoSolicitante] ([tsoId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMTipoSolicitante]
+ALTER TABLE [dbo].[CRMChamado]  WITH NOCHECK ADD  CONSTRAINT [FK_CRMChamado_CRMTipoSolicitante1] FOREIGN KEY([TipoUsuario])
+REFERENCES [dbo].[CRMTipoSolicitante] ([tsoId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_CRMTipoSolicitante1]
+ALTER TABLE [dbo].[CRMChamado]  WITH CHECK ADD  CONSTRAINT [FK_CRMChamado_REACanalAtendimento] FOREIGN KEY([rcaId])
+REFERENCES [dbo].[REACanalAtendimento] ([rcaId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_REACanalAtendimento]
+ALTER TABLE [dbo].[CRMChamado]  WITH CHECK ADD  CONSTRAINT [FK_CRMChamado_REATema] FOREIGN KEY([rteId])
+REFERENCES [dbo].[REATema] ([rteId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_REATema]
+ALTER TABLE [dbo].[CRMChamado]  WITH CHECK ADD  CONSTRAINT [FK_CRMChamado_REATipo] FOREIGN KEY([rtiId])
+REFERENCES [dbo].[REATipo] ([rtiId])
+ALTER TABLE [dbo].[CRMChamado] CHECK CONSTRAINT [FK_CRMChamado_REATipo]

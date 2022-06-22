@@ -1,0 +1,27 @@
+﻿/****** Object:  Table [dbo].[PlanoTratamento]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[PlanoTratamento](
+	[ptrId] [int] NOT NULL,
+	[cd_funcionario] [int] NOT NULL,
+	[cd_filial] [int] NOT NULL,
+	[ptrDtCadastro] [datetime] NOT NULL,
+	[cd_funcionarioCadastro] [int] NOT NULL,
+ CONSTRAINT [PK_PlanoTratamento] PRIMARY KEY CLUSTERED 
+(
+	[ptrId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE NONCLUSTERED INDEX [IX_PlanoTratamento] ON [dbo].[PlanoTratamento]
+(
+	[cd_filial] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_PlanoTratamento_1] ON [dbo].[PlanoTratamento]
+(
+	[cd_funcionario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+ALTER TABLE [dbo].[PlanoTratamento]  WITH CHECK ADD  CONSTRAINT [FK_PlanoTratamento_FILIAL] FOREIGN KEY([cd_filial])
+REFERENCES [dbo].[FILIAL] ([cd_filial])
+ALTER TABLE [dbo].[PlanoTratamento] CHECK CONSTRAINT [FK_PlanoTratamento_FILIAL]

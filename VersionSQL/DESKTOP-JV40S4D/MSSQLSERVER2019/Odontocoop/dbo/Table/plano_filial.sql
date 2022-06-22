@@ -1,0 +1,27 @@
+﻿/****** Object:  Table [dbo].[plano_filial]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[plano_filial](
+	[cd_sequencial] [int] IDENTITY(1,1) NOT NULL,
+	[cd_plano] [smallint] NOT NULL,
+	[cd_filial] [int] NOT NULL,
+	[cd_tabela] [smallint] NOT NULL,
+ CONSTRAINT [PK_plano_filial] PRIMARY KEY CLUSTERED 
+(
+	[cd_sequencial] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE UNIQUE NONCLUSTERED INDEX [IX_plano_filial] ON [dbo].[plano_filial]
+(
+	[cd_plano] ASC,
+	[cd_filial] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_plano_filial_1] ON [dbo].[plano_filial]
+(
+	[cd_tabela] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+ALTER TABLE [dbo].[plano_filial]  WITH NOCHECK ADD  CONSTRAINT [FK_plano_filial_FILIAL] FOREIGN KEY([cd_filial])
+REFERENCES [dbo].[FILIAL] ([cd_filial])
+ALTER TABLE [dbo].[plano_filial] CHECK CONSTRAINT [FK_plano_filial_FILIAL]

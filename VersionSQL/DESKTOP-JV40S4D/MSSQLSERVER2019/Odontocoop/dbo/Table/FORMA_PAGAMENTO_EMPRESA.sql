@@ -1,0 +1,12 @@
+﻿/****** Object:  Table [dbo].[FORMA_PAGAMENTO_EMPRESA]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[FORMA_PAGAMENTO_EMPRESA](
+	[cd_forma_pagamento] [smallint] NOT NULL,
+	[nm_forma_pagamento] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_FORMA_PAGAMENTO_EMPRESA] PRIMARY KEY NONCLUSTERED 
+(
+	[cd_forma_pagamento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]

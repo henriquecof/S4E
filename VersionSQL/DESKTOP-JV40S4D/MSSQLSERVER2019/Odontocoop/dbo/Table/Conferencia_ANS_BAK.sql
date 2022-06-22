@@ -1,0 +1,31 @@
+﻿/****** Object:  Table [dbo].[Conferencia_ANS_BAK]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[Conferencia_ANS_BAK](
+	[dataAtualizacao] [varchar](10) NULL,
+	[situacao] [varchar](20) NULL,
+	[cco] [varchar](30) NULL,
+	[cpf] [varchar](30) NULL,
+	[cns] [varchar](30) NULL,
+	[nome] [varchar](60) NULL,
+	[sexo] [smallint] NULL,
+	[dataNascimento] [varchar](10) NULL,
+	[nomeMae] [varchar](60) NULL,
+	[logradouro] [varchar](100) NULL,
+	[numero] [varchar](8) NULL,
+	[bairro] [varchar](100) NULL,
+	[codigoMunicipio] [int] NULL,
+	[cep] [varchar](8) NULL,
+	[resideExterior] [bit] NULL,
+	[codigoBeneficiario] [int] NULL,
+	[relacaoDependencia] [smallint] NULL,
+	[dataContratacao] [varchar](10) NULL,
+	[dataCancelamento] [varchar](10) NULL,
+	[motivoCancelamento] [smallint] NULL,
+	[numeroPlanoANS] [varchar](50) NULL,
+	[coberturaParcialTemporaria] [smallint] NULL,
+	[itensExcluidosCobertura] [smallint] NULL,
+	[cnpjEmpresaContratante] [varchar](14) NULL,
+	[cd_sequencial_dep] [int] NULL
+) ON [PRIMARY]

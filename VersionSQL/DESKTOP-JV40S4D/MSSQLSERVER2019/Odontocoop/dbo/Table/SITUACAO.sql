@@ -1,0 +1,12 @@
+﻿/****** Object:  Table [dbo].[SITUACAO]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[SITUACAO](
+	[cd_situacao] [smallint] NOT NULL,
+	[nm_situacao] [char](30) NULL,
+ CONSTRAINT [PK_SITUACAO] PRIMARY KEY NONCLUSTERED 
+(
+	[cd_situacao] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]

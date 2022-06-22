@@ -1,0 +1,22 @@
+﻿/****** Object:  Table [dbo].[DEB_AUTOMATICO_CR]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[DEB_AUTOMATICO_CR](
+	[cd_ocorrencia] [smallint] NOT NULL,
+	[nm_ocorrencia] [varchar](100) NOT NULL,
+	[cd_situacao] [smallint] NULL,
+	[FL_GeraCrm] [int] NULL,
+	[fl_limpaEnvio] [int] NULL,
+	[fl_baixaRetorno] [int] NULL,
+	[fl_imagem] [smallint] NULL,
+	[fl_entradaConfirmada] [bit] NULL,
+ CONSTRAINT [PK_DEB_AUTOMATICO_CR] PRIMARY KEY CLUSTERED 
+(
+	[cd_ocorrencia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[DEB_AUTOMATICO_CR]  WITH CHECK ADD  CONSTRAINT [FK_DEB_AUTOMATICO_CR_SITUACAO_HISTORICO] FOREIGN KEY([cd_situacao])
+REFERENCES [dbo].[SITUACAO_HISTORICO] ([CD_SITUACAO_HISTORICO])
+ALTER TABLE [dbo].[DEB_AUTOMATICO_CR] CHECK CONSTRAINT [FK_DEB_AUTOMATICO_CR_SITUACAO_HISTORICO]
